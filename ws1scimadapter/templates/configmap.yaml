@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  plugin-airwatch.json: |
+    {
+      "scimgateway": {
+        "scimversion": "2.0",
+        "loglevel": "{{ .Values.logLevel }}",
+        "localhostonly": false,
+        "port": {{ .Values.containerPort }},
+        "auth": {
+          "basic": {
+            "username": null,
+            "password": null
+          },
+          "bearer": {
+            "token": null,
+            "jwt": {
+              "azure": {
+                "tenantIdGUID": null
+              },
+              "standard": {
+                "secret": null,
+                "publicKey": null,
+                "options": {
+                  "issuer": null
+                }
+              }
+            }
+          }
+        },
+        "certificate": {
+          "key": null,
+          "cert": null,
+          "ca": null,
+          "pfx": {
+            "bundle": null,
+            "password": null
+          }
+        },
+        "emailOnError": {
+          "smtp": {
+            "enabled": false,
+            "host": null,
+            "port": 587,
+            "proxy": null,
+            "authenticate": true,
+            "username": null,
+            "password": null,
+            "sendInterval": 15,
+            "to": null,
+            "cc": null
+          }
+        }
+      },
+      "endpoint": {
+        "entity": {
+          "api": {
+            "baseUrl": "https://{{ .Values.airwatchHost }}/api",
+            "username": null,
+            "password": null,
+            "tenantCode": "{{ .Values.airwatchApi}}"
+          }
+        }
+      }
+    }

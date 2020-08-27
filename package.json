@@ -1,0 +1,55 @@
+{
+  "name": "ws1_uem_scim_adapter",
+  "version": "20.4.1",
+  "description": "SCIM Gateway",
+  "author": "Matt Williams and Joe Rainone",
+  "license": "MIT",
+  "main": "lib/scimgateway.js",
+  "scripts": {
+    "postinstall": "node lib/postinstall.js",
+    "start": "node index.js",
+    "test": "mocha -R spec ./test"
+  },
+  "bin": {
+    "scimgateway": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.eng.vmware.com/williamsmatt/ws1_uem_scim_adapter.git"
+  },
+  "keywords": [
+    "scim",
+    "gateway",
+    "proxy",
+    "azure",
+    "ca",
+    "identity",
+    "manager",
+    "provisioning"
+  ],
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "dependencies": {
+    "callsite": "^1.0.0",
+    "dot-object": "^1.7.1",
+    "https-proxy-agent": "^2.2.1",
+    "jsonwebtoken": "^8.5.0",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "lokijs": "^1.5.6",
+    "node-machine-id": "1.1.9",
+    "nodemailer": "^5.1.1",
+    "passport": "^0.4.0",
+    "passport-azure-ad": "^4.0.0",
+    "soap": "^0.26.0",
+    "tedious": "^5.0.3",
+    "winston": "^3.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "supertest": "^3.3.0"
+  }
+}
